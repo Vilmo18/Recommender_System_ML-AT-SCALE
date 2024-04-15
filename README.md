@@ -1,2 +1,2 @@
 # apply_ML_AS
-A Recommander System
+A Recommender System
