@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+
 def transform_df_numpy(data):
     first_two_int = data.iloc[:, :2].select_dtypes(include=np.int64).to_numpy()
     last_two_float = data.iloc[:, -4:].select_dtypes(include=np.float64).to_numpy()
