@@ -11,6 +11,8 @@ st.sidebar.success("Select a page above.")
 if "my_input" not in st.session_state:
     st.session_state["my_input"] = ""
 
+selectvalue=st.selectbox("Select movie from dropdown", [1,2,3])
+
 my_input = st.text_input("Input a text here", st.session_state["my_input"])
 submit = st.button("Submit")
 if submit:
