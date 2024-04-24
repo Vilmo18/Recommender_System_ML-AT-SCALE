@@ -11,7 +11,7 @@ def fetch_poster(movie_id):
      full_path = "https://image.tmdb.org/t/p/w500/"+poster_path
      return full_path
 
-def display_image_movie(movie_id):
+def display_image_movie(movie_id,link):
   tmdbId=link[link['movieId']==movie_id]['tmdbId'].values[0]
   url = fetch_poster(tmdbId)
   data = requests.get(url).content
@@ -22,7 +22,7 @@ def display_image_movie(movie_id):
   img = cv2.resize(img, (400, 400))
   cv2_imshow(img)
 
-def map_movie_id_title(movie_id):
+def map_movie_id_title(movie_id,movies):
     return movies[movies['movieId']==movie_id]['title'].values[0]
 
 
