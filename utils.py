@@ -1,6 +1,8 @@
 from google.colab.patches import cv2_imshow
 import cv2
 import requests
+import matplotlib.pyplot as plt
+
 
 
 def fetch_poster(movie_id):
