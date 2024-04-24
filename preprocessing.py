@@ -13,7 +13,7 @@ def transform_numpy_dico(data_transform):
     index_twice2 = {}
     index_twice1 = {}
     
-    for entry in data:
+    for entry in tqdm(data):
         user_id, item_id, rating= entry
         if user_id not in index_twice1:
             index_twice1[user_id] = {}
@@ -51,7 +51,7 @@ def mapper(data):
         for old_index, value in old_index_dict.items():
             updated_old_index_dict[index_mapping_user[old_index]] = value
         updated_d2[new_index] = updated_old_index_dict
-    
+    del d1,d2
     return  index_mapping_user,index_mapping_movie, updated_d1, updated_d2
 
 def transform_dict_tuple(input_dict):
