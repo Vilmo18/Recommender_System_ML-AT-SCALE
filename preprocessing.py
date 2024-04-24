@@ -13,7 +13,7 @@ def transform_numpy_dico(data_transform):
     index_twice2 = {}
     index_twice1 = {}
     
-    for entry in tqdm(data):
+    for entry in data:
         user_id, item_id, rating= entry
         if user_id not in index_twice1:
             index_twice1[user_id] = {}
@@ -39,14 +39,14 @@ def mapper(data):
     #print(index_mapping_movie)
     
     updated_d1 = {}
-    for new_index, old_index_dict in tqdm(enumerate(d1.values())):
+    for new_index, old_index_dict in enumerate(d1.values()):
         updated_old_index_dict = {}
         for old_index, value in old_index_dict.items():
             updated_old_index_dict[index_mapping_movie[old_index]] = value
         updated_d1[new_index] = updated_old_index_dict
         
     updated_d2 = {}
-    for new_index, old_index_dict in tqdm(enumerate(d2.values())):
+    for new_index, old_index_dict in enumerate(d2.values()):
         updated_old_index_dict = {}
         for old_index, value in old_index_dict.items():
             updated_old_index_dict[index_mapping_user[old_index]] = value
@@ -72,8 +72,8 @@ def dict_to_list(input_dict):
 
 
 def find_true_movie_id(dictionnary, fake_id):
-    for cle, val in dictionnary.items():
+    for key, val in dictionnary.items():
         if val == fake_id:
-            return cle
+            return key
     return None
 
