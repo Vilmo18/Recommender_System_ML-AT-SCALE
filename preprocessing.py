@@ -32,10 +32,10 @@ def mapper(data):
     index_mapping_movie = {}
     
     for i, key in enumerate(d1.keys()):
-        index_mapping_user[key] = i
+        index_mapping_user[int(key)] = i
     #print(index_mapping_user)
     for i, key in enumerate(d2.keys()):
-        index_mapping_movie[key] = i
+        index_mapping_movie[int(key)] = i
     #print(index_mapping_movie)
     
     updated_d1 = {}
@@ -69,3 +69,11 @@ def dict_to_list(input_dict):
     for key, value in tqdm(input_dict.items()):
         result_list[key] = list(value)
     return result_list
+
+
+def find_true_movie_id(dictionnary, fake_id):
+    for cle, val in dictionnary.items():
+        if val == fake_id:
+            return cle
+    return None
+
