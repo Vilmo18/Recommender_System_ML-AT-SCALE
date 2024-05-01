@@ -72,12 +72,8 @@ def mapper(data):
 
     for i, key in enumerate(d1.keys()):
         index_mapping_user[int(key)] = i
-    # print(index_mapping_user)
     for i, key in enumerate(d2.keys()):
         index_mapping_movie[int(key)] = i
-    # print(index_mapping_movie)
-
-    
     return index_mapping_user, index_mapping_movie
 
 def mapp(data):
@@ -87,10 +83,9 @@ def mapp(data):
 
     for i, key in enumerate(d1.keys()):
         index_mapping_user[int(key)] = i
-    # print(index_mapping_user)
+
     for i, key in enumerate(d2.keys()):
         index_mapping_movie[int(key)] = i
-    # print(index_mapping_movie)
 
     updated_d1 = {}
     for new_index, old_index_dict in enumerate(d1.values()):
@@ -107,6 +102,28 @@ def mapp(data):
         updated_d2[new_index] = updated_old_index_dict
     del d1, d2
     return index_mapping_user, index_mapping_movie, updated_d1, updated_d2
+
+
+def mapp_dim(index_mapping_user,index_mapping_movie,data):
+    d1, d2 = transform_numpy_dico(data)
+    index_mapping_user = {}
+    index_mapping_movie = {}
+
+    updated_d1 = {}
+    for new_index, old_index_dict in enumerate(d1.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_movie[old_index]] = value
+        updated_d1[new_index] = updated_old_index_dict
+
+    updated_d2 = {}
+    for new_index, old_index_dict in enumerate(d2.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_user[old_index]] = value
+        updated_d2[new_index] = updated_old_index_dict
+    del d1, d2
+    return index_mapping_user, index_mapping_movie, updated_d1, updated_d2  
 
 def transform_dict_tuple(input_dict):
     transformed_dict = {}
