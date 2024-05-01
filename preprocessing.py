@@ -81,6 +81,11 @@ def mapp(data):
     index_mapping_user = {}
     index_mapping_movie = {}
 
+    for i, key in enumerate(d1.keys()):
+        index_mapping_user[int(key)] = i
+
+    for i, key in enumerate(d2.keys()):
+        index_mapping_movie[int(key)] = i
 
     updated_d1 = {}
     for new_index, old_index_dict in enumerate(d1.values()):
@@ -101,6 +106,8 @@ def mapp(data):
 
 def mapp_dim(index_mapping_user,index_mapping_movie,data):
     d1, d2 = transform_numpy_dico(data)
+    index_mapping_user = {}
+    index_mapping_movie = {}
 
     updated_d1 = {}
     for new_index, old_index_dict in enumerate(d1.values()):
