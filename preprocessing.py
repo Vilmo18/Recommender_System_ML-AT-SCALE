@@ -25,9 +25,46 @@ def transform_numpy_dico(data_transform):
     return index_twice1, index_twice2
 
 
+
+def mapper_new(index_mapping_user,index_mapping_movie,data_train,data_test):
+    u_train,m_train=transform_df_numpy(data_train)
+    u_test,m_test=transform_df_numpy(data_test)
+    user_train = {}
+    for new_index, old_index_dict in enumerate(u_train.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_movie[old_index]] = value
+        user_train[new_index] = updated_old_index_dict
+
+    movie_train = {}
+    for new_index, old_index_dict in enumerate(m_train.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_user[old_index]] = value
+        movie_train[new_index] = updated_old_index_dict
+    
+    #- -- ----- ------- ---------
+
+    user_test = {}
+    for new_index, old_index_dict in enumerate(u_test.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_movie[old_index]] = value
+        user_test[new_index] = updated_old_index_dict
+
+    movie_test = {}
+    for new_index, old_index_dict in enumerate(m_test.values()):
+        updated_old_index_dict = {}
+        for old_index, value in old_index_dict.items():
+            updated_old_index_dict[index_mapping_user[old_index]] = value
+        movie_test[new_index] = updated_old_index_dict
+
+    return  user_train,user_test,movie_train,movie_test
+
+
+
 def mapper(data):
     d1, d2 = transform_numpy_dico(data)
-
     index_mapping_user = {}
     index_mapping_movie = {}
 
@@ -37,22 +74,8 @@ def mapper(data):
     for i, key in enumerate(d2.keys()):
         index_mapping_movie[int(key)] = i
     # print(index_mapping_movie)
-
-    updated_d1 = {}
-    for new_index, old_index_dict in enumerate(d1.values()):
-        updated_old_index_dict = {}
-        for old_index, value in old_index_dict.items():
-            updated_old_index_dict[index_mapping_movie[old_index]] = value
-        updated_d1[new_index] = updated_old_index_dict
-
-    updated_d2 = {}
-    for new_index, old_index_dict in enumerate(d2.values()):
-        updated_old_index_dict = {}
-        for old_index, value in old_index_dict.items():
-            updated_old_index_dict[index_mapping_user[old_index]] = value
-        updated_d2[new_index] = updated_old_index_dict
-    del d1, d2
-    return index_mapping_user, index_mapping_movie, updated_d1, updated_d2
+   
+    return index_mapping_user, index_mapping_movie
 
 
 def transform_dict_tuple(input_dict):
