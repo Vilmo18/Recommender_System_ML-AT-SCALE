@@ -55,31 +55,32 @@ def load_latent():
 
 @st.cache_data
 def load_data():
-    data = pd.read_csv("apply_ML_AS/ratings.csv")
+    data = pd.read_csv("occurences.csv")
     return data
 
 @st.cache_data
 def load_info():
-    link = pd.read_csv("apply_ML_AS/links.csv")
-    movies_df = pd.read_csv("apply_ML_AS/movies.csv")
+    link = pd.read_csv("links.csv")
+    movies_df = pd.read_csv("movies.csv")
     movies = pickle.load(open("movies.pkl", "rb"))
     movies_list = movies
     return link, movies_df, movies, movies_list
 
 @st.cache_data
 def load_ressource():
-    link = pd.read_csv("apply_ML_AS/links.csv")
-    movies_df = pd.read_csv("apply_ML_AS/movies.csv")
+    link = pd.read_csv("links.csv")
+    movies_df = pd.read_csv("movies.csv")
     movies_list = pickle.load(open("movies.pkl", "rb"))
     dico = np.load("model2/movies_mapping.npy", allow_pickle=True).item()
     return link, movies_df, movies_list, dico
 
 def prediction(user_new, user_bias_new, movies_vector, item_biases, fact=1):
     def movie_ids_less_than_k_occurrences(rate=50):
-        dataframe = load_data()
-        occurrences = (
-            dataframe.groupby("movieId").size().reset_index(name="occurrences")
-        )
+        #dataframe = load_data()
+        #occurrences = (
+        #    dataframe.groupby("movieId").size().reset_index(name="occurrences")
+        #)
+        occurrences=load_data()
         less_than_30_occurrences = occurrences[occurrences["occurrences"] < rate][
             "movieId"
         ].tolist()
