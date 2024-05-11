@@ -23,7 +23,7 @@ def generate_user_vector(
 ):
     user_new = np.random.normal(0, 1 / np.sqrt(k), (k))
     user_bias_new = 0
-    for _ in tqdm(range(iteration)):
+    for _ in range(iteration):
         biais = 0
         item_counter = 0
         for n, r in users_predict:
@@ -115,12 +115,7 @@ def fetch_poster(movie_id):
 
     if not isinstance(data.get("poster_path"), str):
         full_path = "/home/carre/Desktop/ML_at_Scale/apply_ML_AS/unknown.jpg"
-    else:
-        poster_path = data["poster_path"]
-        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-    return full_path
-
-
+    else:tqdm
 st.set_page_config(
     page_title="MoviesLens Recommender System ",
     page_icon=":rocket:",
