@@ -45,6 +45,7 @@ def form(link, movies_df, movies_list, dico):
 
 
 def save_data(dataframe):
+    dico = np.load('model2/movies_mapping.npy', allow_pickle=True).item()
     if (dataframe.shape[0]) > 0:
         liste_lignes = [
             tuple([dico[row[0]], row[2]]) for row in dataframe.to_records(index=False)
