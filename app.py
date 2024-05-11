@@ -114,7 +114,7 @@ def fetch_poster(movie_id):
     data = data.json()
 
     if not isinstance(data.get("poster_path"), str):
-        full_path = "/home/carre/Desktop/ML_at_Scale/apply_ML_AS/unknown.jpg"
+        full_path = "unknown.jpg"
     else:
         poster_path = data["poster_path"]
         full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
