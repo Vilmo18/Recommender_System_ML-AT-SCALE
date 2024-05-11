@@ -23,7 +23,7 @@ def generate_user_vector(
 ):
     user_new = np.random.normal(0, 1 / np.sqrt(k), (k))
     user_bias_new = 0
-    for _ in tqdm(range(iteration)):
+    for _ in range(iteration):
         biais = 0
         item_counter = 0
         for n, r in users_predict:
