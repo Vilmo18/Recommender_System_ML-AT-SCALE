@@ -88,7 +88,7 @@ def prediction(user_new, user_bias_new, movies_vector, item_biases, fact=1):
 
     n = movies_vector.shape[1]
     predict = []
-    for i in tqdm(range(n)):
+    for i in range(n):
         predict.append(
             np.dot(user_new, movies_vector.T[i]) + fact * item_biases[i] + user_bias_new
         )
