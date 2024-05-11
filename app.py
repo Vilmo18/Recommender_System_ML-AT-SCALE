@@ -23,7 +23,7 @@ def generate_user_vector(
 ):
     user_new = np.random.normal(0, 1 / np.sqrt(k), (k))
     user_bias_new = 0
-    for _ in range(iteration):
+    for _ in tqdm(range(iteration)):
         biais = 0
         item_counter = 0
         for n, r in users_predict:
@@ -114,7 +114,7 @@ def fetch_poster(movie_id):
     data = data.json()
 
     if not isinstance(data.get("poster_path"), str):
-        full_path = "unknown.jpg"
+        full_path = "/home/carre/Desktop/ML_at_Scale/apply_ML_AS/unknown.jpg"
     else:
         poster_path = data["poster_path"]
         full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
