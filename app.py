@@ -48,8 +48,8 @@ def generate_user_vector(
 
 @st.cache_data
 def load_latent():
-    movies_vector = np.load("model2/movies.npy")
-    item_biases = np.load("model2/m_bias.npy")
+    movies_vector = np.load("model/movies.npy")
+    item_biases = np.load("model/m_bias.npy")
     return movies_vector, item_biases
 
 
@@ -71,7 +71,7 @@ def load_ressource():
     link = pd.read_csv("links.csv")
     movies_df = pd.read_csv("movies.csv")
     movies_list = pickle.load(open("movies.pkl", "rb"))
-    dico = np.load("model2/movies_mapping.npy", allow_pickle=True).item()
+    dico = np.load("model/movies_mapping.npy", allow_pickle=True).item()
     return link, movies_df, movies_list, dico
 
 def prediction(user_new, user_bias_new, movies_vector, item_biases, fact=1):
@@ -96,7 +96,7 @@ def prediction(user_new, user_bias_new, movies_vector, item_biases, fact=1):
     recommender = recommender[:700]
     rec = []
     print(2)
-    dico = np.load("model2/movies_mapping.npy", allow_pickle=True).item()
+    dico = np.load("model/movies_mapping.npy", allow_pickle=True).item()
     less_than_k_occurrences_ids = movie_ids_less_than_k_occurrences(rate=130)
     print(4)
     for i in recommender:
@@ -185,7 +185,7 @@ if selected == "Recommendation":
                 users_predict = [(4887, 5.0)]
 
             index_mapping_movie = np.load(
-                "model2/movies_mapping.npy", allow_pickle=True
+                "model/movies_mapping.npy", allow_pickle=True
             ).item()
 
             movies_vector, item_biases = load_latent()
