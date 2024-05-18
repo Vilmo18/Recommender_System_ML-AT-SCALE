@@ -1,7 +1,7 @@
 import requests
 import matplotlib.pyplot as plt
 from IPython.display import Image
-
+import random
 
 def find_id_per_title(dataframe, titre_recherche):
     row = dataframe[dataframe["title"] == titre_recherche]
@@ -10,16 +10,18 @@ def find_id_per_title(dataframe, titre_recherche):
     else:
         return None
 
-
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=c7ec19ffdd3279641fb606d19ceb9bb1&language=en-US".format(
         movie_id
     )
-    data = requests.get(url)
-    data = data.json()
-    poster_path = data["poster_path"]
-    full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+    data = requests.get(url).json()
+    if not isinstance(data.get("poster_path"), str):
+        full_path = "images/unknown.jpg"
+    else:
+        poster_path = data["poster_path"]
+        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
+
 
 
 def map_movie_id_title(movie_id, movies):
@@ -36,6 +38,7 @@ def plot_rating(data):
     user_degrees = user_rating_counts.value_counts().sort_index()
     movie_degrees = movie_rating_counts.value_counts().sort_index()
     plt.figure(figsize=(10, 5))
+
     plt.scatter(user_degrees.index, user_degrees.values, color="blue", alpha=0.5)
     plt.xscale("log")
     plt.yscale("log")
@@ -79,3 +82,9 @@ def display_image_title_movie(movie_id, link, movies):
     display(Image(url=image_url, width=300, height=300))  # noqa: F821
     print(map_movie_id_title(movie_id, movies))
 
+
+def get_images_urls(link, size=6):
+    link_list = list(link["tmdbId"].unique())
+    choice = random.sample(link_list, size)
+    imageUrls = [fetch_poster(k) for k in choice]
+    return imageUrls
