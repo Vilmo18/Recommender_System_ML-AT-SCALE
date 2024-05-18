@@ -26,7 +26,7 @@ imageCarouselComponent = components.declare_component(
 
 ## Display carrousel
 
-imageUrls = get_images_urls(link=link, size=7)
+imageUrls = get_images_urls(link=link, size=10)
 imageCarouselComponent(imageUrls=imageUrls, height=200)
 
 

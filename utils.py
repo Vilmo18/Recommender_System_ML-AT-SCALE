@@ -2,6 +2,76 @@ import requests
 import matplotlib.pyplot as plt
 from IPython.display import Image
 import random
+import numpy as np
+from tqdm import tqdm
+
+
+def train_test_split(data,test=0.1,seed=42):
+    user_ids, movie_ids, user_ratings = data.T
+
+    # getting unique user IDs and movie IDs
+    unique_user_ids = np.unique(user_ids)
+    unique_movie_ids = np.unique(movie_ids)
+
+    # Making Data random
+    rng = np.random.default_rng(43)
+    rng.shuffle(data)
+
+    test_num = int(test * len(data))
+
+    test = data[:test_num+1, :]
+    train = data[test_num+1:, :]
+
+    return train, test, unique_user_ids, unique_movie_ids
+
+def create_UV(rating_arr,unique_user_ids,unique_movie_ids):
+    #sorting according to user and movies
+    user_sort = rating_arr[rating_arr[:, 0].argsort()]
+    movies_sort = rating_arr[rating_arr[:, 1].argsort()]
+
+    # separating user and movie IDs and ratings
+    user_ids, user_movie_ids, user_ratings = user_sort.T
+    movie_user_ids, movie_movie_ids, movie_ratings = movies_sort.T
+
+    # getting unique user IDs and movie IDs
+    # unique_user_ids = np.unique(user_ids)
+    # unique_movie_ids = np.unique(movie_movie_ids)
+
+    # mapping Ids to rating map
+    user_to_idx = {int(user_id): idx for idx, user_id in enumerate(unique_user_ids)}
+    movie_to_idx = {int(movie_id): idx for idx, movie_id in enumerate(unique_movie_ids)}
+
+    # mapping
+    user_to_rating = [[] for _ in unique_user_ids]
+    movie_to_rating = [[] for _ in unique_movie_ids]
+
+    for user_id, movie_id, rating in tqdm(zip(user_ids, user_movie_ids, user_ratings)):
+        user_idx = user_to_idx[int(user_id)]
+        movie_idx = movie_to_idx[int(movie_id)]
+        user_to_rating[user_idx].append((movie_idx, rating))
+        movie_to_rating[movie_idx].append((user_idx, rating))
+
+    return user_to_idx, movie_to_idx, user_to_rating, movie_to_rating
+
+
+def get_movie_ids_by_category(df,category):
+    filtered_df = df[df['genres'].str.contains(category)]
+    if filtered_df.empty:
+        return 'Aucun film trouvé dans cette catégorie'
+    return filtered_df['movieId'].tolist()
+
+def get_embedding(X,dico,movies,category):
+  emb=[]
+  movie_ids = get_movie_ids_by_category(movies,category)
+  for id in movie_ids:
+      value = dico.get(id)
+      if value is not None:
+          emb.append(value)
+  trie=[]
+  for i in emb[:100]:
+    trie.append(X[i])
+  return np.array(trie)
+
 
 def find_id_per_title(dataframe, titre_recherche):
     row = dataframe[dataframe["title"] == titre_recherche]
