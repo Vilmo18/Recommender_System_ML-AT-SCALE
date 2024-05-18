@@ -5,7 +5,6 @@ import random
 import pickle
 import numpy as np
 import requests
-from tqdm import tqdm
 from form import *
 import pandas as pd
 from utils import *
@@ -55,32 +54,31 @@ def load_latent():
 
 @st.cache_data
 def load_data():
-    data = pd.read_csv("occurences.csv")
+    data = pd.read_csv("data/occurences.csv")
     return data
+
 
 @st.cache_data
 def load_info():
-    link = pd.read_csv("links.csv")
-    movies_df = pd.read_csv("movies.csv")
-    movies = pickle.load(open("movies.pkl", "rb"))
+    link = pd.read_csv("data/links.csv")
+    movies_df = pd.read_csv("data/movies.csv")
+    movies = pickle.load(open("model/movies.pkl", "rb"))
     movies_list = movies
     return link, movies_df, movies, movies_list
 
+
 @st.cache_data
 def load_ressource():
-    link = pd.read_csv("links.csv")
-    movies_df = pd.read_csv("movies.csv")
-    movies_list = pickle.load(open("movies.pkl", "rb"))
+    link = pd.read_csv("data/links.csv")
+    movies_df = pd.read_csv("data/movies.csv")
+    movies_list = pickle.load(open("model/movies.pkl", "rb"))
     dico = np.load("model/movies_mapping.npy", allow_pickle=True).item()
     return link, movies_df, movies_list, dico
 
+
 def prediction(user_new, user_bias_new, movies_vector, item_biases, fact=1):
     def movie_ids_less_than_k_occurrences(rate=50):
-        #dataframe = load_data()
-        #occurrences = (
-        #    dataframe.groupby("movieId").size().reset_index(name="occurrences")
-        #)
-        occurrences=load_data()
+        occurrences = load_data()
         less_than_30_occurrences = occurrences[occurrences["occurrences"] < rate][
             "movieId"
         ].tolist()
@@ -114,7 +112,7 @@ def fetch_poster(movie_id):
     data = data.json()
 
     if not isinstance(data.get("poster_path"), str):
-        full_path = "unknown.jpg"
+        full_path = "images/unknown.jpg"
     else:
         poster_path = data["poster_path"]
         full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
@@ -143,14 +141,13 @@ imageUrls = [fetch_poster(k) for k in choice]
 imageCarouselComponent(imageUrls=imageUrls, height=200)
 
 
-def streamlit_menu(example=1):
+def streamlit_menu():
     with st.sidebar:
         selected = option_menu(
-            menu_title="Menu",  # required
-            options=["Preferences", "Search", "Recommendation"],  # required
-            icons=["house", "search", "list"],  # optional
-            # menu_icon="cast",  # optional
-            default_index=0,  # optional
+            menu_title="Menu",
+            options=["Preferences", "Search", "Recommendation"],
+            icons=["house", "search", "list"],
+            default_index=0,
         )
     return selected
 
@@ -159,7 +156,10 @@ selected = streamlit_menu()
 
 if selected == "Preferences":
     with st.spinner("Loading..."):
-        st.session_state["user_predict"], st.session_state["user"] = form(link1, movies_df1, movies_list1, dico1)
+        st.session_state["user_predict"], st.session_state["user"] = form(
+            link1, movies_df1, movies_list1, dico1
+        )
+
 if selected == "Search":
     st.title("Looking for movies")
     selectvalue = st.selectbox("Select movie from dropdown", movies_list["title"])
@@ -171,9 +171,6 @@ if selected == "Search":
             width=200,
             caption=f"{selectvalue} - {map_movie_id_genre(movie_id, movies)}",
         )
-
-
-
 
 if selected == "Recommendation":
     option = st.radio("Choose your way ", ("Popular", "Personalisation"))

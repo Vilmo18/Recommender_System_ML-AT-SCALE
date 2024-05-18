@@ -51,9 +51,9 @@ def save_data(dataframe):
             tuple([dico[row[0]], row[2]]) for row in dataframe.to_records(index=False)
         ]
         print(liste_lignes)
-        np.save("preferences.npy", liste_lignes)
+        np.save("model/preferences.npy", liste_lignes)
     else:
         liste_lignes = [(4887, 5.0)]
-        np.save("preferences.npy", liste_lignes)
+        np.save("model/preferences.npy", liste_lignes)
 
     return liste_lignes
