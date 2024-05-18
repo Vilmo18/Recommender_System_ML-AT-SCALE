@@ -31,29 +31,20 @@ def map_movie_id_title(movie_id, movies):
 def map_movie_id_genre(movie_id, movies):
     return movies[movies["movieId"] == movie_id]["genres"].values[0]
 
-
 def plot_rating(data):
     user_rating_counts = data.groupby("userId")["rating"].count()
     movie_rating_counts = data.groupby("movieId")["rating"].count()
     user_degrees = user_rating_counts.value_counts().sort_index()
     movie_degrees = movie_rating_counts.value_counts().sort_index()
-    plt.figure(figsize=(10, 5))
-
-    plt.scatter(user_degrees.index, user_degrees.values, color="blue", alpha=0.5)
+    plt.figure(figsize=(6, 4))
+    plt.scatter(movie_degrees.index, movie_degrees.values, alpha=0.5)
+    plt.scatter(user_degrees.index, user_degrees.values, alpha=0.5)
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("Degree (log scale)")
     plt.ylabel("Frequency (log scale)")
     plt.grid(True)
-    plt.show()
-
-    plt.figure(figsize=(10, 5))
-    plt.scatter(movie_degrees.index, movie_degrees.values, color="green", alpha=0.5)
-    plt.xscale("log")
-    plt.yscale("log")
-    plt.xlabel("Degree (log scale)")
-    plt.ylabel("Frequency (log scale)")
-    plt.grid(True)
+    plt.savefig('law_distribution.pdf', format='pdf')
     plt.show()
 
 
