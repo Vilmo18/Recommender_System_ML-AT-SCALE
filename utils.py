@@ -144,7 +144,7 @@ def display_image_title_movie(movie_id, link, movies):
     print(map_movie_id_title(movie_id, movies))
 
 
-def get_images_urls(link, size=8):
+def get_images_urls(link, size=10):
     link_list = list(link["tmdbId"].unique())
     choice = random.sample(link_list, size)
     imageUrls = [fetch_poster(k) for k in choice]
