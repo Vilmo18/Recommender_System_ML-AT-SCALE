@@ -60,8 +60,6 @@ if menu == "Recommendation":
             if len(users_predict) == 0:
                 users_predict = [(4887, 5.0)]
 
-           
-
             movies_vector, item_biases = load_latent()
             user_new, user_bias_new = generate_user_vector(
                 users_predict, movies_vector, item_biases
