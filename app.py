@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import numpy as np
 from windows.form import *
 from windows.menu import *
 from utils import *
@@ -82,9 +81,7 @@ if menu == "Recommendation":
             recom_images = []
             for i in range(len(index[:20])):
                 tmdbId = link[link["movieId"] == index[i]]["tmdbId"].values[0]
-                ENDPOINT = fetch_poster(tmdbId)
                 recom_images.append((index[i], fetch_poster(tmdbId)))
-
             n_cols = 4
             n_rows = 1 + len(recom_images) // int(n_cols)
             rows = [st.container() for _ in range(n_rows)]
