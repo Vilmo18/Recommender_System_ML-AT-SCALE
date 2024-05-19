@@ -34,6 +34,13 @@ To enhance our model, we will incorporate latent vectors. This allows us to capt
 
 To address the cold start problem, where new items or users lack sufficient data for accurate recommendations, we will include item-associated features in our model. By incorporating these features, the model can provide better recommendations even when limited user-item interaction data is available. This approach helps improve the recommendation quality, especially for new or less popular items.
 
+<p align="center">
+  <img src="images/file_readme/feature_loss_train_page-0001.jpg" alt="train" width="400"/>
+  <img src="images/file_readme/feature_rmse_train_page-0001.jpg" alt="rmse" width="400"/>
+</p>
+
+
+
 ## Visualizing Our Embeddings
 
 Finally, we will visualize our embeddings to better understand the learned representations of users and items. 
