@@ -19,12 +19,15 @@ This method optimizes user and item biases to produce robust predictions. It is 
 
 <p align="center">
   <img src="file_readme/bias_only_loss_train_page-0001.jpg" alt="Information" width="400"/>
-  <img src="file_readme/bias_only_rmse_train_page-0001" alt="Rating" width="400"/>
+  <img src="file_readme/bias_only_rmse_train_page-0001.jpg" alt="Rating" width="400"/>
 </p>
 ## 2. ALS with Bias and Latent Vectors
 
 To enhance our model, we will incorporate latent vectors. This allows us to capture more complex relationships between users and items, leading to more personalized and accurate recommendations. By combining biases with latent factors, the model can better understand the unique preferences of users and the specific characteristics of items.
-
+<p align="center">
+  <img src="file_readme/latent_loss_train_page-0001.jpg" alt="Information" width="400"/>
+  <img src="file_readme/latent_rmse_train_page-0001.jpg" alt="Rating" width="400"/>
+</p>
 ## 3. ALS with Added Features
 
 To address the cold start problem, where new items or users lack sufficient data for accurate recommendations, we will include item-associated features in our model. By incorporating these features, the model can provide better recommendations even when limited user-item interaction data is available. This approach helps improve the recommendation quality, especially for new or less popular items.
