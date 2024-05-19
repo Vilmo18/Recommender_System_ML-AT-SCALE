@@ -36,7 +36,7 @@ To address the cold start problem, where new items or users lack sufficient data
 
 Finally, we will visualize our embeddings to better understand the learned representations of users and items. 
 <p align="center">
-  <img src="images/file_readme/rating.png" alt="Rating" width="400"/>
+  <img src="images/file_readme/embeddong_page-0001.jpg" alt="Rating" width="400"/>
 </p>
 
 
