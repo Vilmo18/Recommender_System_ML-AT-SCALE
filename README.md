@@ -48,6 +48,10 @@ Finally, we will visualize our embeddings to better understand the learned repre
 ## Use case
 ### Features
 
+<p align="center">
+  <img src="images/file_readme/usecase.png" alt="Information" width="400"/>
+</p>
+
 1. **Search for a Movie**: Users can enter a movie title and view a summary of the movie along with its category.
 
 2. **Provide Ratings**: Users can rate movies they have enjoyed.
@@ -57,11 +61,6 @@ Finally, we will visualize our embeddings to better understand the learned repre
 4. **Delete Ratings**: Users can delete the ratings they have given to movies.
 
 5. **Get Recommendations**: Users can receive movie recommendations based on the movies they have rated.
-
-
-<p align="center">
-  <img src="images/file_readme/usecase.png" alt="Information" width="400"/>
-</p>
 
 ## Demo
 <p align="center">
