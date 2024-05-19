@@ -37,7 +37,7 @@ To address the cold start problem, where new items or users lack sufficient data
 
 <p align="center">
   <img src="images/file_readme/feature_loss_train_page-0001.jpg" alt="train" width="400"/>
-  <img src="images/file_readme/feature_rmse_train_page-0001.jpg" alt="rmse" width="400"/>
+  <img src="images/file_readme/feature_rmse_latent_page-0001.jpg" alt="rmse" width="400"/>
 </p>
 
 
