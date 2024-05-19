@@ -61,6 +61,12 @@ Finally, we will visualize our embeddings to better understand the learned repre
   <img src="images/file_readme/prediction.png" alt="Rating" width="400"/>
 </p>
 
+
+## Accessibility 
+<p align="center">
+  <img src="images/file_readme/qrcode.png" alt="Information" width="400"/>
+</p>
+
 # Social
 [![vilmo18](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vilmo18)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yvan-carr%C3%A9-8230442b1/)
