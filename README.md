@@ -29,7 +29,10 @@ Now, we will enhance our model by incorporating latent vectors, allowing us to c
 # Demo
 ![Photo](file_readme/saving.png)
 ![Photo](file_readme/prediction.png)
-
+<p align="center">
+  <img src="file_readme/prediction.png" alt="Information" width="400"/>
+  <img src="file_readme/prediction.png" alt="Rating" width="400"/>
+</p>
 
 # Social
 [![vilmo18](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vilmo18)
