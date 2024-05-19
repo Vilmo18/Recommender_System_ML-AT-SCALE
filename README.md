@@ -71,7 +71,7 @@ Finally, we will visualize our embeddings to better understand the learned repre
  
 <p align="center">
   <img src="images/file_readme/prediction.png" alt="Information" width="400"/>
-  <img src="images/file_readme/prediction.png" alt="Rating" width="400"/>
+  <img src="images/file_readme/prediction2.png" alt="Rating" width="400"/>
 </p>
 
 
