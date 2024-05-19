@@ -21,14 +21,12 @@ Now, we will enhance our model by incorporating latent vectors, allowing us to c
 
 # Photos
 <p align="center">
-  <img src="file_readme/info.png" alt="Photo 1" width="400"/>
-  <img src="file_readme/info.png" alt="Photo 2" width="400"/>
+  <img src="file_readme/info.png" alt="Information" width="400"/>
+  <img src="file_readme/rating.png" alt="Rating" width="400"/>
 </p>
 
  
 # Demo
-![Photo](file_readme/info.png)
-![Photo](file_readme/rating.png)
 ![Photo](file_readme/saving.png)
 ![Photo](file_readme/prediction.png)
 
