@@ -13,6 +13,9 @@ A Recommender System
 
 # Project Purpose
 The objective of this project is to implement various versions of the Alternating Least Squares (ALS) algorithm for matrix factorization. The three approaches we will explore are:
+<p align="center">
+  <img src="images/file_readme/facto.jpg" alt="facto" width="400"/>
+</p>
 
 ## 1. ALS with Bias Only
 
