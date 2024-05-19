@@ -41,7 +41,14 @@ Finally, we will visualize our embeddings to better understand the learned repre
 
 
 
-# Photos
+# MoviesLens Recommender System
+
+## Use case
+
+<p align="center">
+  <img src="images/file_readme/usecase.png" alt="Information" width="400"/>
+</p>
+
 <p align="center">
   <img src="images/file_readme/info.png" alt="Information" width="400"/>
   <img src="images/file_readme/rating.png" alt="Rating" width="400"/>
