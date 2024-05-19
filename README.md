@@ -26,7 +26,7 @@ This method optimizes user and item biases to produce robust predictions. It is 
 To enhance our model, we will incorporate latent vectors. This allows us to capture more complex relationships between users and items, leading to more personalized and accurate recommendations. By combining biases with latent factors, the model can better understand the unique preferences of users and the specific characteristics of items.
 <p align="center">
   <img src="images/file_readme/latent_loss_train_page-0001.jpg" alt="train" width="400"/>
-  <img src="images/file_readme/latent_rmse_latent_train_page-0001.jpg" alt="rmse" width="400"/>
+  <img src="images/file_readme/latent_rmse_latent_page-0001.jpg" alt="rmse" width="400"/>
 </p>
 ## 3. ALS with Added Features
 
