@@ -10,3 +10,7 @@ A Recommender System
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yvan-carr%C3%A9-8230442b1/)
 # Photo
 ![Photo](file_readme/info.png)
+![Photo](file_readme/rating.png)
+![Photo](file_readme/saving.png)
+![Photo](file_readme/choice.png)
+![Photo](file_readme/prediction.png)
