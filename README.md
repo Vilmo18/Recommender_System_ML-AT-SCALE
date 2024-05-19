@@ -47,12 +47,12 @@ Finally, we will visualize our embeddings to better understand the learned repre
 # MoviesLens Recommender System
 
 ## Use case
-### Features
 
 <p align="center">
   <img src="images/file_readme/usecase.png" alt="Information" width="400"/>
 </p>
 
+### Features
 1. **Search for a Movie**: Users can enter a movie title and view a summary of the movie along with its category.
 
 2. **Provide Ratings**: Users can rate movies they have enjoyed.
