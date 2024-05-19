@@ -49,13 +49,13 @@ Finally, we will visualize our embeddings to better understand the learned repre
   <img src="images/file_readme/usecase.png" alt="Information" width="400"/>
 </p>
 
+# Demo
 <p align="center">
   <img src="images/file_readme/info.png" alt="Information" width="400"/>
   <img src="images/file_readme/rating.png" alt="Rating" width="400"/>
 </p>
 
  
-# Demo
 <p align="center">
   <img src="images/file_readme/prediction.png" alt="Information" width="400"/>
   <img src="images/file_readme/prediction.png" alt="Rating" width="400"/>
@@ -64,7 +64,7 @@ Finally, we will visualize our embeddings to better understand the learned repre
 
 ## Accessibility 
 <p align="center">
-  <img src="images/file_readme/qrcode.png" alt="qrcode" width="200"/>
+  <img src="images/file_readme/qrcode.png" alt="qrcode" width="150"/>
 </p>
 
 # Social
