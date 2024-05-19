@@ -9,13 +9,12 @@ A Recommender System
 ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ml-at-scale-movies-lens-recommender-system.streamlit.app)
 
-
-
 # Project Purpose
-The objective of this project is to implement various versions of the Alternating Least Squares (ALS) algorithm for matrix factorization. The three approaches we will explore are:
+
 <p align="center">
   <img src="images/file_readme/facto.jpg" alt="facto" width="400"/>
 </p>
+The objective of this project is to implement various versions of the Alternating Least Squares (ALS) algorithm for matrix factorization. The three approaches we will explore are:
 
 ## 1. ALS with Bias Only
 
