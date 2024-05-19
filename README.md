@@ -64,7 +64,7 @@ Finally, we will visualize our embeddings to better understand the learned repre
 
 ## Accessibility 
 <p align="center">
-  <img src="images/file_readme/qrcode.png" alt="Information" width="400"/>
+  <img src="images/file_readme/qrcode.png" alt="qrcode" width="200"/>
 </p>
 
 # Social
