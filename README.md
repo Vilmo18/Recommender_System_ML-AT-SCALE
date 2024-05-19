@@ -65,7 +65,7 @@ Finally, we will visualize our embeddings to better understand the learned repre
 ## Demo
 <p align="center">
   <img src="images/file_readme/information.png" alt="Information" width="400"/>
-  <img src="images/file_readme/ratings.png" alt="Rating" width="400"/>
+  <img src="images/file_readme/saving.png" alt="Rating" width="400"/>
 </p>
 
  
