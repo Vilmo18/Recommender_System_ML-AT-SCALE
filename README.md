@@ -62,6 +62,17 @@ Finally, we will visualize our embeddings to better understand the learned repre
 
 5. **Get Recommendations**: Users can receive movie recommendations based on the movies they have rated.
 
+## How to launch ?
+
+- `git clone https://github.com/Vilmo18/apply_ML_AS.git`
+- `pip install requirements.txt`
+- `./launch ` 
+
+## Accessibility 
+<p align="center">
+  <img src="images/file_readme/qrcode.png" alt="qrcode" width="150"/>
+</p>
+
 ## Demo
 <p align="center">
   <img src="images/file_readme/information.png" alt="Information" width="400"/>
@@ -75,10 +86,7 @@ Finally, we will visualize our embeddings to better understand the learned repre
 </p>
 
 
-## Accessibility 
-<p align="center">
-  <img src="images/file_readme/qrcode.png" alt="qrcode" width="150"/>
-</p>
+
 
 # Social
 [![vilmo18](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Vilmo18)
