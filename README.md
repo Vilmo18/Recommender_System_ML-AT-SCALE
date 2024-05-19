@@ -64,13 +64,13 @@ Finally, we will visualize our embeddings to better understand the learned repre
 
 ## Demo
 <p align="center">
-  <img src="images/file_readme/info.png" alt="Information" width="400"/>
-  <img src="images/file_readme/rating.png" alt="Rating" width="400"/>
+  <img src="images/file_readme/information.png" alt="Information" width="400"/>
+  <img src="images/file_readme/ratings.png" alt="Rating" width="400"/>
 </p>
 
  
 <p align="center">
-  <img src="images/file_readme/prediction.png" alt="Information" width="400"/>
+  <img src="images/file_readme/prediction1.png" alt="Information" width="400"/>
   <img src="images/file_readme/prediction2.png" alt="Rating" width="400"/>
 </p>
 
