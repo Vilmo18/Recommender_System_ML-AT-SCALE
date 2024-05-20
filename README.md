@@ -1,5 +1,5 @@
-# apply_ML_AS
-A Recommender System
+# Applied_ML_AS
+Recommender System : MovieLens 
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
