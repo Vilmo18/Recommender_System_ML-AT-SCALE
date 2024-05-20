@@ -1,6 +1,7 @@
 import numpy as np
 from utils import *
 
+
 def generate_user_vector(
     users_predict,
     movies_vector,
@@ -31,8 +32,11 @@ def generate_user_vector(
         user_new = np.linalg.solve(left_val + tau * np.eye(k), lamb * right_val)
     return user_new, user_bias_new
 
-def prediction(user_new, user_bias_new, movies_vector, item_biases,dico,occurrences, fact=1):
-    def movie_ids_less_than_k_occurrences(occurences,rate=50):
+
+def prediction(
+    user_new, user_bias_new, movies_vector, item_biases, dico, occurrences, fact=1
+):
+    def movie_ids_less_than_k_occurrences(occurences, rate=50):
         less_than_30_occurrences = occurrences[occurrences["occurrences"] < rate][
             "movieId"
         ].tolist()
@@ -47,11 +51,11 @@ def prediction(user_new, user_bias_new, movies_vector, item_biases,dico,occurren
     recommender = np.argsort(predict)[::-1]
     recommender = recommender[:700]
     rec = []
-    less_than_k_occurrences_ids = movie_ids_less_than_k_occurrences(occurrences,rate=130)
+    less_than_k_occurrences_ids = movie_ids_less_than_k_occurrences(
+        occurrences, rate=130
+    )
     for i in recommender:
         key = find_key_by_values(dico, i)
         if key not in less_than_k_occurrences_ids:
             rec.append(key)
     return rec
-
-

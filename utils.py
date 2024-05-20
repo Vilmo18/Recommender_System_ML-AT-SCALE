@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 
 
-def train_test_split(data,test=0.1,seed=42):
+def train_test_split(data, test=0.1, seed=42):
     user_ids, movie_ids, user_ratings = data.T
 
     # getting unique user IDs and movie IDs
@@ -19,13 +19,14 @@ def train_test_split(data,test=0.1,seed=42):
 
     test_num = int(test * len(data))
 
-    test = data[:test_num+1, :]
-    train = data[test_num+1:, :]
+    test = data[: test_num + 1, :]
+    train = data[test_num + 1 :, :]
 
     return train, test, unique_user_ids, unique_movie_ids
 
-def create_UV(rating_arr,unique_user_ids,unique_movie_ids):
-    #sorting according to user and movies
+
+def create_UV(rating_arr, unique_user_ids, unique_movie_ids):
+    # sorting according to user and movies
     user_sort = rating_arr[rating_arr[:, 0].argsort()]
     movies_sort = rating_arr[rating_arr[:, 1].argsort()]
 
@@ -54,23 +55,24 @@ def create_UV(rating_arr,unique_user_ids,unique_movie_ids):
     return user_to_idx, movie_to_idx, user_to_rating, movie_to_rating
 
 
-def get_movie_ids_by_category(df,category):
-    filtered_df = df[df['genres'].str.contains(category)]
+def get_movie_ids_by_category(df, category):
+    filtered_df = df[df["genres"].str.contains(category)]
     if filtered_df.empty:
-        return 'Aucun film trouvé dans cette catégorie'
-    return filtered_df['movieId'].tolist()
+        return "Aucun film trouvé dans cette catégorie"
+    return filtered_df["movieId"].tolist()
 
-def get_embedding(X,dico,movies,category):
-  emb=[]
-  movie_ids = get_movie_ids_by_category(movies,category)
-  for id in movie_ids:
-      value = dico.get(id)
-      if value is not None:
-          emb.append(value)
-  trie=[]
-  for i in emb[:100]:
-    trie.append(X[i])
-  return np.array(trie)
+
+def get_embedding(X, dico, movies, category):
+    emb = []
+    movie_ids = get_movie_ids_by_category(movies, category)
+    for id in movie_ids:
+        value = dico.get(id)
+        if value is not None:
+            emb.append(value)
+    trie = []
+    for i in emb[:100]:
+        trie.append(X[i])
+    return np.array(trie)
 
 
 def find_id_per_title(dataframe, titre_recherche):
@@ -79,6 +81,7 @@ def find_id_per_title(dataframe, titre_recherche):
         return row.iloc[0]["movieId"]
     else:
         return None
+
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=c7ec19ffdd3279641fb606d19ceb9bb1&language=en-US".format(
@@ -93,13 +96,13 @@ def fetch_poster(movie_id):
     return full_path
 
 
-
 def map_movie_id_title(movie_id, movies):
     return movies[movies["movieId"] == movie_id]["title"].values[0]
 
 
 def map_movie_id_genre(movie_id, movies):
     return movies[movies["movieId"] == movie_id]["genres"].values[0]
+
 
 def plot_rating(data):
     user_rating_counts = data.groupby("userId")["rating"].count()
@@ -114,7 +117,7 @@ def plot_rating(data):
     plt.xlabel("Degree (log scale)")
     plt.ylabel("Frequency (log scale)")
     plt.grid(True)
-    plt.savefig('law_distribution.pdf', format='pdf')
+    plt.savefig("law_distribution.pdf", format="pdf")
     plt.show()
 
 

@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 from utils import *
 
 
@@ -32,15 +31,15 @@ def form(link, movies_df, movies_list, dico):
     st.write("This is your rating :")
     st.write(df)
     if user_name == "":
-            user_name = "User"
+        user_name = "User"
     if st.button("Save rating"):
-        default = save_data(df,dico)
-        
+        default = save_data(df, dico)
+
         st.success(f" Dear {user_name}, your movie's ratings, are save with succes 😁!")
     return default, user_name
 
 
-def save_data(dataframe,dico):
+def save_data(dataframe, dico):
     if (dataframe.shape[0]) > 0:
         liste_lignes = [
             tuple([dico[row[0]], row[2]]) for row in dataframe.to_records(index=False)
