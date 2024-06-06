@@ -74,10 +74,15 @@ Finally, we will visualize our embeddings to better understand the learned repre
 - `pip install requirements.txt`
 - `./launch ` 
 
-## Accessibility 
+## Accessibility
+Link for the web app:  
+[https://ml-at-scale-movies-lens-recommender-system.streamlit.app](https://ml-at-scale-movies-lens-recommender-system.streamlit.app)  
+or  
+Scan QRCode:  
 <p align="center">
   <img src="images/file_readme/qrcode.png" alt="qrcode" width="150"/>
 </p>
+
 
 ## Demo
 <p align="center">
